@@ -28,15 +28,15 @@
 
           <mat-form-field class="input-field">
             <mat-label>Category</mat-label>
-            <input matInput id="category-input" type="number" placeholder="Filter by category"
-            min="0" max="200" [(ngModel)]="todoCategory" (input)="getTodosFromServer()">
+            <input matInput id="category-input" placeholder="Filter by category"
+            [(ngModel)]="todoCategory" (input)="getTodosFromServer()">
             <mat-hint>Filtered on server</mat-hint>
           </mat-form-field>
 
           <mat-form-field class="input-field">
             <mat-label>Contents</mat-label>
-            <input matInput id="content-input" type="number" placeholder="Filter by content"
-            min="0" max="200" [(ngModel)]="todoBody" (input)="getTodosFromServer()">
+            <input matInput id="content-input" placeholder="Filter by content"
+            [(ngModel)]="todoBody" (input)="getTodosFromServer()">
             <mat-hint>Filtered on server</mat-hint>
           </mat-form-field>
         </div>
