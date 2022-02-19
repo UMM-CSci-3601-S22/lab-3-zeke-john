@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Todo } from '../todo-profile/todo';
-
+import { Todo } from './todo';
 @Component({
   selector: 'app-todo-card',
   templateUrl: './todo-card.component.html',

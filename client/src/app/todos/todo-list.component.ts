@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Todo } from '../todo-profile/todo';
-import { TodoService } from '../todo.service';
+import { Todo } from './todo';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-todo-list',
