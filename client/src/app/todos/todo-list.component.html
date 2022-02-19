@@ -15,12 +15,13 @@
             <mat-hint>Filtered on client</mat-hint>
           </mat-form-field>
 
-          <mat-form-field class="input-field">
-            <mat-label>Status</mat-label>
-            <input matInput id="status-input" placeholder="Filter by status"
-            [(ngModel)]="todoStatus" (input)="updateFilter()">
-            <mat-hint>Filtered on client</mat-hint>
-          </mat-form-field>
+            <label>Status: </label>
+            <mat-radio-group aria-label="Status" [(ngModel)]="statusString" data-test="statusRadio">
+              <mat-radio-button value="complete">complete</mat-radio-button>
+              <mat-radio-button value="incomplete">incomplete</mat-radio-button>
+              <mat-hint>filtered on client</mat-hint>
+            </mat-radio-group>
+
         </div>
 
         <div fxLayout="row wrap" fxLayoutGap="10px">
