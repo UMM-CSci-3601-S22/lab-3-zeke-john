@@ -86,7 +86,7 @@ describe('TodoListComponent', () => {
   beforeEach(waitForAsync(constructTodoList));
 
   it('contains all the todos', () => {
-    expect(todoList.serverFilteredTodos.length).toBe(3);
+    expect(todoList.serverFilteredTodos.length).toBe(4);
   });
 
   it('contains a todo with owner "Blanche"', () => {

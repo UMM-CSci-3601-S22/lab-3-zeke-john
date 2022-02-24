@@ -18,7 +18,7 @@ export class TodoService {
       if (filters.owner) {
         httpParams = httpParams.set('owner', filters.owner);
       }
-      if (filters.status) {
+      if (filters.status !== undefined) {
         httpParams = httpParams.set('status', filters.status);
       }
       if (filters.category) {
@@ -28,6 +28,7 @@ export class TodoService {
         httpParams = httpParams.set('body', filters.body);
       }
     }
+    console.error(httpParams);
     return this.httpClient.get<Todo[]>(this.todoUrl, { params: httpParams,
     });
   }

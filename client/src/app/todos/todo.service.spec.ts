@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import * as exp from 'constants';
 import { Todo } from './todo';
 import { TodoService } from './todo.service';
 
@@ -130,7 +129,7 @@ describe('TodoService', () => {
       );
 
       expect(req.request.method).toEqual('GET');
-      expect(req.request.params.get('status')).toBeTrue();
+      expect(req.request.params.get('status')).toEqual('true');
       req.flush(testTodos);
     });
 
@@ -164,7 +163,7 @@ describe('TodoService', () => {
 
       expect(req.request.params.get('owner')).toEqual('Blanche');
       expect(req.request.params.get('category')).toEqual('software design');
-      expect(req.request.params.get('status')).toBeFalse();
+      expect(req.request.params.get('status')).toEqual('false');
       req.flush(testTodos);
     });
   });

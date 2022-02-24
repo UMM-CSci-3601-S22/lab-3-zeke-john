@@ -16,9 +16,9 @@
           </mat-form-field>
 
             <label>Status: </label>
-            <mat-radio-group aria-label="Status" [(ngModel)]="statusString" data-test="statusRadio">
-              <mat-radio-button value="complete">complete</mat-radio-button>
-              <mat-radio-button value="incomplete">incomplete</mat-radio-button>
+            <mat-radio-group aria-label="Status" [(ngModel)]="todoStatus" data-test="statusRadio">
+              <mat-radio-button value=true>complete</mat-radio-button>
+              <mat-radio-button value=false>incomplete</mat-radio-button>
               <mat-hint>filtered on client</mat-hint>
             </mat-radio-group>
 
