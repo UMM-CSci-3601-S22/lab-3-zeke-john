@@ -36,7 +36,7 @@ export class TodoListComponent implements OnInit {
     }, err => {
       console.error('We couldn\'t get the list of todos; the server might be down');
       this.snackBar.open(
-        'Problem contacting the server – try again',
+        'Problem contacting the server - try again',
         'OK',
         {duration: 3000});
     });

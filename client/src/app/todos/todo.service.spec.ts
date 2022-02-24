@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import * as exp from 'constants';
 import { Todo } from './todo';
 import { TodoService } from './todo.service';
 
@@ -37,6 +36,7 @@ describe('TodoService', () => {
       category: 'software design'
     }
   ];
+
   let todoService: TodoService;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
@@ -121,7 +121,7 @@ describe('TodoService', () => {
 
     // Tests filtering by 'status'
     it('correctly calls api/todos with filter parameter \'status\'', () => {
-      todoService.getTodos({status: true}).subscribe(
+      todoService.getTodos({ status: true }).subscribe(
         todos => expect(todos).toBe(testTodos)
       );
 
@@ -130,13 +130,13 @@ describe('TodoService', () => {
       );
 
       expect(req.request.method).toEqual('GET');
-      expect(req.request.params.get('status')).toBeTrue();
+      expect(req.request.params.get('status')).toBeTruthy();
       req.flush(testTodos);
     });
 
     // tests filtering by 'contents'
     it('correctly calls api/todos with filter parameter \'body\'', () => {
-      todoService.getTodos({body: 'magna'}).subscribe(
+      todoService.getTodos({ body: 'magna' }).subscribe(
         todos => expect(todos).toBe(testTodos)
       );
 
@@ -151,20 +151,19 @@ describe('TodoService', () => {
 
     // Tests multiple filters
     it('correctly calls api/todos with multiple filter parameters', () => {
-      todoService.getTodos({owner: 'Blanche', category: 'software design', status: false}).subscribe(
+      todoService.getTodos({owner: 'Blanche', category: 'software design'}).subscribe(
         todos => expect(todos).toBe(testTodos)
       );
 
       const req = httpTestingController.expectOne(
         (request) => request.url.startsWith(todoService.todoUrl) && request.params.has('owner')
-        && request.params.has('category') && request.params.has('status')
+        && request.params.has('category')
       );
 
       expect(req.request.method).toEqual('GET');
 
       expect(req.request.params.get('owner')).toEqual('Blanche');
       expect(req.request.params.get('category')).toEqual('software design');
-      expect(req.request.params.get('status')).toBeFalse();
       req.flush(testTodos);
     });
   });
