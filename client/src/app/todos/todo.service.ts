@@ -32,6 +32,7 @@ export class TodoService {
     });
   }
 
+
   getTodoById(id: string): Observable<Todo> {
     return this.httpClient.get<Todo>(`${this.todoUrl}/${id}`);
   }

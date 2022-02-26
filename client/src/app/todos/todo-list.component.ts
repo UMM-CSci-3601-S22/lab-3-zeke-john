@@ -10,8 +10,6 @@ import { TodoService } from './todo.service';
 })
 export class TodoListComponent implements OnInit {
 
-  public statusString: string;
-
   public serverFilteredTodos: Todo[];
   public filteredTodos: Todo[];
 
@@ -42,13 +40,9 @@ export class TodoListComponent implements OnInit {
     });
   }
 
-  public checkStatus() {
-    return this.statusString === 'complete';
-  }
-
   public updateFilter() {
     this.filteredTodos = this.todoService.filterTodos(
-      this.serverFilteredTodos, { owner: this.todoOwner, status: this.checkStatus(),
+      this.serverFilteredTodos, { owner: this.todoOwner, status: this.todoStatus,
        category: this.todoCategory, body: this.todoBody }
     );
   }
