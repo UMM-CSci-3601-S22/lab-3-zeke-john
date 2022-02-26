@@ -54,7 +54,7 @@ describe('Todo list', () => {
         .should('match', /.*\/todos\/[0-9a-fA-F]{24}$/);
 
       // On this profile page we were sent to, the name and category should be correct
-      cy.get('.todo-card-name').first().should('have.text', firstTodoOwner);
+      cy.get('.todo-card-owner').first().should('have.text', firstTodoOwner);
       cy.get('.todo-card-category').first().should('have.text', firstTodoCategory);
     });
    });

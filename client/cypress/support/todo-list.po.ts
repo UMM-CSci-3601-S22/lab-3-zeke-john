@@ -62,7 +62,7 @@ export class TodoListPage {
    *
    * @param status Filters the todos by status (either complete or incomplete)
    */
-  changeStatus(status: 'complete' | 'imcomplete') {
+  changeStatus(status: boolean) {
     return cy.get(`[data-test=statusRadio] .mat-radio-button[value="${status}"]`).click();
   }
 
