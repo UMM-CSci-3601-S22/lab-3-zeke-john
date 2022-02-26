@@ -18,8 +18,13 @@ export class TodoService {
       if (filters.owner) {
         httpParams = httpParams.set('owner', filters.owner);
       }
-      if (filters.status) {
-        httpParams = httpParams.set('status', filters.status);
+      if (filters.status !== undefined) {
+        if (filters.status === true) {
+          httpParams = httpParams.set('status', 'complete');
+        }
+        if (filters.status === false) {
+          httpParams = httpParams.set('status', 'incomplete');
+        }
       }
       if (filters.category) {
         httpParams = httpParams.set('category', filters.category);
@@ -45,8 +50,7 @@ export class TodoService {
       filteredTodos = filteredTodos.filter(todo => todo.owner.toLowerCase().indexOf(filters.owner)!== -1);
     }
 
-    if (filters.status) {
-      filters.status = filters.status;
+    if (filters.status !== undefined) {
       filteredTodos = filteredTodos.filter(todo => todo.status);
     }
 
