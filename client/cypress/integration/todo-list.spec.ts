@@ -14,50 +14,12 @@ describe('Todo list', () => {
 
   it('Should type something in the owner filter and check that it returned correct elements', () => {
     // Filter for todo owner 'Blanche'
-    cy.get('#todo-owner-input').type('Blanche');
+    cy.get('#owner-input').type('Blanche');
 
     // All of the todo cards should have the owner we are filtering by
     page.getTodoCards().each($card => {
       cy.wrap($card).find('.todo-card-owner').should('have.text', 'Blanche');
     });
-
-    // (We check this two ways to show multiple ways to check this)
-    page.getTodoCards().find('.todo-card-owner').each($owner =>
-      expect($owner.text()).to.equal('Blanche')
-    );
-  });
-
-  it('Should type something in the category filter and check that it returned correct elements', () => {
-    // Filter for category 'software design'
-    cy.get('#todo-category-input').type('software design');
-
-    // All of the todo cards should have the category we are filtering by
-    page.getTodoCards().find('.todo-card-category').each($card => {
-      cy.wrap($card).should('have.text', 'software design');
-    });
-  });
-
-  it('Should type something partial in the category filter and check that it returned correct elements', () => {
-    // Filter for categories that contain 'de'
-    cy.get('#todo-category-input').type('de');
-
-    // Go through each of the cards that are being shown and get the categories
-    page.getTodoCards().find('.todo-card-category')
-      // We should see these categories
-      .should('contain.text', 'software design')
-      .should('contain.text', 'video games')
-      // We shouldn't see these categories
-      .should('not.contain.text', 'homework')
-      .should('not.contain.text', 'groceries');
-  });
-
-  it('Should change the status filter and check that it returned correct elements', () => {
-
-    page.changeStatus('complete');
-
-    page.getTodoCards().find('.todo-card-status')
-    .should('contain.text', 'complete')
-    .should('not.contain.text', 'incomplete');
   });
 
   it('Should change the view', () => {
