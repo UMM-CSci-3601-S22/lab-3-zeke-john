@@ -10,7 +10,7 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-
+@SuppressWarnings({ "MagicNumber" })
 public class FilterTodosByCombinedFilters {
 
   @Test
