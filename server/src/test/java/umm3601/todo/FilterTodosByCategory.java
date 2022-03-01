@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings({ "MagicNumber" })
 public class FilterTodosByCategory {
   @Test
-  public void FilterTodosByCategory() throws IOException {
+  public void findSoftwareDesignTodos() throws IOException {
     TodoDatabase db = new TodoDatabase("/todos.json");
     Todo[] allTodos = db.listTodos(new HashMap<>());
 

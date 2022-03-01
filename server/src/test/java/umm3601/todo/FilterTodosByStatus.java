@@ -10,9 +10,11 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
+@SuppressWarnings({ "MagicNumber" })
 public class FilterTodosByStatus {
 
   @Test
+  @SuppressWarnings({ "MagicNumber" })
   public void filterTodosByCompletion() throws IOException {
     TodoDatabase db = new TodoDatabase("/todos.json");
     Todo[] allTodos = db.listTodos(new HashMap<>());
@@ -22,6 +24,7 @@ public class FilterTodosByStatus {
   }
 
   @Test
+  @SuppressWarnings({ "MagicNumber" })
   public void listTodosWithStatusFilter() throws IOException {
     TodoDatabase db = new TodoDatabase("/todos.json");
     Map<String, List<String>> queryParams = new HashMap<>();

@@ -21,7 +21,7 @@ public class FilterTodosByCombinedFilters {
     queryParams.put("owner", Arrays.asList(new String[] {"Blanche"}));
     queryParams.put("category", Arrays.asList(new String[] {"software design"}));
 
-    Todo[] BlancheSDTodos = db.listTodos(queryParams);
-    assertEquals(14, BlancheSDTodos.length);
+    Todo[] blancheSDTodos = db.listTodos(queryParams);
+    assertEquals(14, blancheSDTodos.length);
   }
 }
